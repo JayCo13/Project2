@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ Route('homepage') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ Route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{ Route('shop') }}">Shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
                             </ul>
@@ -104,11 +104,6 @@
 
                         <div class="pd-share">
                             <div class="p-code">Sku : {{ $product->sku }}</div>
-                            <!-- <div class="pd-social">
-                                <a href="#"><i class="fas fa-facebook"></i></a>
-                                <a href="#"><i class="fas fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-linkedin"></i></a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -219,7 +214,9 @@
                                         @foreach($product->productComments as $productComment)
                                         <div class="co-item">
                                             <!-- avatar -->
-
+                                            <div class="avatar-pic">
+                                                <img src="{{ asset('/images/' . ($productComment->user->avatar ?? 'avatar1.png')) }}" alt="">   
+                                            </div>
                                             <div class="avatar-text">
                                                 <div class="at-rating">
                                                     @for($i = 1; $i <=5; $i++) @if($i <=$productComment->rating) <i
@@ -241,8 +238,7 @@
                                         <form method="post" action="" class="comment-form">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                            <input type="hidden" name="user_id"
-                                                value="{{ \Illuminate\Support\Facades\Auth::user()->id ?? null}}">
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id ?? null }}">
 
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -356,47 +352,24 @@
 
 @section('myjs')
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const sizeRadios = document.querySelectorAll('.pd-size-choose input[type="radio"]');
-        sizeRadios.forEach((radio, index) => {
-            radio.addEventListener('change', () => {
-                sizeRadios.forEach((otherRadio) => {
-                    const label = document.querySelector(`label[for="${otherRadio.id}"]`);
-                    if (otherRadio.checked) {
-                        label.classList.add('active');
-                    } else {
-                        label.classList.remove('active');
-                    }
-                });
-            });
-
-            if (index === 0 && radio.checked) {
-                const label = document.querySelector(`label[for="${radio.id}"]`);
-                label.classList.add('active');
-            }
-        });
-    });
-
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const colorRadios = document.querySelectorAll('.pd-color input[type="radio"]');
-        colorRadios.forEach((radio, index) => {
-            radio.addEventListener('change', () => {
-                colorRadios.forEach((otherRadio) => {
-                    const label = document.querySelector(`label[for="${otherRadio.id}"]`);
-                    if (otherRadio.checked) {
-                        label.classList.add('active');
-                    } else {
-                        label.classList.remove('active');
-                    }
-                });
-            });
-
-            if (index === 0 && radio.checked) {
-                const label = document.querySelector(`label[for="${radio.id}"]`);
-                label.classList.add('active');
-            }
-        });
-    });
+    var proQty = $('.pro-qty');
+	proQty.prepend('<span class="dec qtybtn">-</span>');
+	proQty.append('<span class="inc qtybtn">+</span>');
+	proQty.on('click', '.qtybtn', function () {
+		var $button = $(this);
+		var oldValue = $button.parent().find('input').val();
+		if ($button.hasClass('inc')) {
+			var newVal = parseFloat(oldValue) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValue > 0) {
+				var newVal = parseFloat(oldValue) - 1;
+			} else {
+				newVal = 0;
+			}
+		}
+		$button.parent().find('input').val(newVal);
+	});
 
     $('.quantities .quantity a').click(function (e) {
         e.preventDefault();

@@ -51,7 +51,7 @@
                       <th style="width: 15%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 10%">
                       Action
                       </th>
                   </tr>
@@ -64,14 +64,14 @@
         <td>
             <img src="{{ asset('images/' . $image->photo) }}" alt="" style="width:20%">
         </td>
-        <td class="project-state">
+        <td class="project-actions text-center">
             <span class="badge badge-success">Success</span>
         </td>
-        <td class="project-actions text-right">
+        <td class="project-actions text-center">
     <form action="{{ route('banner.destroy', $image->id) }}" method="POST">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">
+    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this banner?')">
         <i class="fas fa-trash"></i> Delete
     </button>
 </form>

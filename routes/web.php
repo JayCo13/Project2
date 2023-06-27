@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductCommentController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\InformController;
@@ -39,7 +40,7 @@ Route::group(['middleware' => 'admin'], function () {
     // Các route chỉ dành cho quản trị viên
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/profile', 'ProfileController@index')->name('profile');
-    Route::put('/profile', 'ProfileController@update')->name('profile.update');
+    Route::put('/profile', 'ProfileController@updateadmin')->name('profile.update');
     Route::get('/user', 'UserController@index')->name('user');
 //Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
       Route::resource('users', UserController::class);
@@ -79,6 +80,9 @@ Route::resource('slider', SliderController::class);
 //inform
 Route::get('/informs', 'InformController@index')->name('informs');
 Route::resource('inform', InformController::class);
+//comment
+Route::get('/comments', 'ProductCommentController@index')->name('comments');
+Route::resource('comment', ProductCommentController::class);
 //coupon
 Route::get('/coupons', 'CouponController@index')->name('coupons');
 Route::resource('coupon', CouponController::class);
@@ -116,7 +120,7 @@ Route::get('/checkout/result', [CheckoutController::class, 'result'])->name('res
 //Payment
 Route::get('/payment/success', [CheckoutController::class, 'paySuccess'])->name('paySuccess');
 Route::get('/payment/cancel', [CheckoutController::class, 'payCancel'])->name('payCancel');
-// homepage 
+// homepage
 Route::get('/homepage', [App\Http\Controllers\FE\HomepageController::class, 'index'])->name('homepage');
 //sales
 Route::get('/sales', [App\Http\Controllers\FE\HomepageController::class, 'sales'])->name('sales');
@@ -141,5 +145,5 @@ Route::put('/survey/{survey}', [App\Http\Controllers\FE\SurveyController::class,
 Route::post('/profilefe/update', 'ProfileController@update')->name('profilefe.update');
 Route::get('/profilefe', 'ProfileController@edit')->name('profilefe');
 Route::get('profile/timeline', [ProfileController::class, 'timeline'])->name('profile.timeline');
-// order 
+// order
 Route::get('/order-details/{id}', 'OrderController@showOrderDetails')->name('order.details');

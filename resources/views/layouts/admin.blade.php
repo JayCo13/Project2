@@ -118,6 +118,11 @@
                 <span>{{ __('Slider') }}</span>
             </a>
         </li>
+
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            {{ __('About') }}
+        </div>
         <li class="nav-item {{ Nav::isRoute('informs') }}">
             <a class="nav-link" href="{{ route('informs') }}">
             <i class="fab fa-product-hunt"></i>
@@ -140,6 +145,12 @@
             <a class="nav-link" href="{{ route('coupons') }}">
             <i class="fab fa-product-hunt"></i>
                 <span>{{ __('Coupon') }}</span>
+            </a>
+        </li>
+        <li class="nav-item {{ Nav::isRoute('comments') }}">
+            <a class="nav-link" href="{{ route('comments') }}">
+            <i class="fab fa-product-hunt"></i>
+                <span>{{ __('Comment') }}</span>
             </a>
         </li>
         <hr class="sidebar-divider">

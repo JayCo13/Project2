@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ Route('homepage') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Shop</li>
                             </ul>
                         </nav>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <!-- brand end -->
-                        
+
                         <!-- pricing filter start -->
                         <div class="sidebar-widget mb-30">
                             <div class="sidebar-title mb-10">
@@ -108,8 +108,8 @@
                         </div>
                         <!-- pricing filter end -->
 
-                        <form action="">    
-                            <!-- size filter start -->       
+                        <form action="">
+                            <!-- size filter start -->
                             <div class="sidebar-widget mb-30">
                                 <div class="sidebar-title mb-10">
                                     <h3>Size</h3>
@@ -180,7 +180,7 @@
                                 </div>
                             </div>
                             <!-- size filter end -->
-        
+
                             <!-- color start -->
 
                             <div class="sidebar-widget mb-30">
@@ -231,12 +231,12 @@
                                             <label for="cs-brown"
                                                 class="cs-brown {{ request('color') == 'brown' ? 'font-weight-bold' : '' }}">brown</label>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                             <!-- color end -->
-                        </form>                                    
+                        </form>
                     </div>
                 </div>
                 <!-- sidebar end -->
@@ -315,7 +315,7 @@
                                             @endif
                                             <div class="product-action-link">
                                                 <a href="{{ url('shop/product/'.$product->id.'-'.$product->slug) }}">
-                                                    <span data-toggle="tooltip" data-placement="left" 
+                                                    <span data-toggle="tooltip" data-placement="left"
                                                     title="Quick view"><i class="fa fa-search"></i>
                                                     </span>
                                                 </a>
@@ -354,7 +354,7 @@
                                             <p>No results found.</p>
                                         </div>
                                     </div>
-                                    
+
                                 @endif
                             </div>
                         </div>

@@ -32,31 +32,31 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    
+
      public function store(Request $request)
      {
          if ($request->hasFile('photo')) {
              $file = $request->file('photo');
              $extension = $file->getClientOriginalExtension();
              $allowedExtensions = ['jpg', 'jpeg', 'png'];
-     
+
              if (!in_array($extension, $allowedExtensions)) {
                  return redirect()->back()->withErrors('Định dạng hình ảnh không hợp lệ.');
              }
-     
+
              $imageName = time() . '_' . $file->getClientOriginalName();
              $file->move(public_path('images'), $imageName);
-     
+
              $slider = new Slider();
              $slider->photo = $imageName;
              $slider->save();
          }
-     
-         session()->flash('success', 'Slider đã được lưu thành công.');
-     
+
+         session()->flash('success', 'Slider has been saved successfully.');
+
          return redirect('/sliders');
      }
-     
+
 
     /**
      * Display the specified resource.
@@ -91,6 +91,6 @@ class SliderController extends Controller
 
         // Xóa banner
         $banner->delete();
-        return redirect()->route('slider.index')->with('success', 'Xóa Slider thành công!');
+        return redirect()->route('slider.index')->with('success', 'Delete Slider Successfully!');
     }
 }

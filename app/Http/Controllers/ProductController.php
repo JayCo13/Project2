@@ -23,10 +23,11 @@ class ProductController extends Controller
         $products = Product::all();
         $images = ProductImage::all();
         $prdtel = ProductDetail::all();
+        $products = Product::paginate(10); // Số lượng sản phẩm hiển thị trên mỗi trang, ở đây là 10
         return view('product.index', compact('products', 'images', 'prdtel'));
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -50,13 +51,13 @@ class ProductController extends Controller
             'sku' => 'required|string|max:255',
             'featured' => 'required|string|max:255',
         ], [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
-            'sku.required' => 'Vui lòng nhập ma sản phẩm.',
-            'description.required' => 'Vui lòng nhập mô tả sản phẩm.',
-            'price.required' => 'Vui lòng nhập giá sản phẩm.',
-            'price.integer' => 'Giá sản phẩm phải là một số nguyên.',
-            'featured.required' => 'Vui lòng nhập thuộc tính nổi bật sản phẩm.',
+            'name.required' => 'Please enter the product name.',
+            'slug.required' => 'Please enter the product slug.',
+            'sku.required' => 'Please enter the product SKU.',
+            'description.required' => 'Please enter the product description.',
+            'price.required' => 'Please enter the product price.',
+            'price.integer' => 'The product price must be an integer.',
+            'featured.required' => 'Please enter the featured attribute of the product.',
         ]);
         $product = Product::create([
             'name' => $request->name,
@@ -85,7 +86,7 @@ class ProductController extends Controller
                 'photo' => $imageName,
             ]);
         }
-        session()->flash('success', 'Sản phẩm đã được lưu thành công.');
+        session()->flash('success', 'Product has been successfully saved.');
 
         return redirect('/product');
     }
@@ -106,7 +107,7 @@ class ProductController extends Controller
     {
         // Lấy thông tin sản phẩm từ cơ sở dữ liệu
         $product = Product::findOrFail($id);
-        
+
         return view('product.edit', compact('product'));
     }
 
@@ -124,22 +125,22 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
-          
-           
-            
-           
+
+
+
+
 
 
         ],[
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
-           
-          
-            
-            
+            'name.required' => 'Please enter the product name.',
+            'slug.required' => 'Please enter the product slug.',
+
+
+
+
         ]);
         $product->update($request->all());
-        session()->flash('success', 'Sản phẩm đã được lưu thành công.');
+        session()->flash('success', 'Product has been successfully saved.');
         return redirect()->route('product');
     }
 
@@ -163,7 +164,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->route('product')->with('success', 'Xóa Product thành công!');;
+        return redirect()->route('product')->with('success', 'Product has been successfully deleted.!');;
     }
 
 }

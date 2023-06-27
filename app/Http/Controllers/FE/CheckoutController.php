@@ -165,6 +165,7 @@ class CheckoutController extends Controller
                 $ord->phone = $checkoutData['phone'];
                 $ord->country = $checkoutData['country'];
                 $ord->city = $checkoutData['city'];
+                $ord->status = 'pending';
                 $ord->payment_type = $checkoutData['payment_type'];
                 $ord->save();
         

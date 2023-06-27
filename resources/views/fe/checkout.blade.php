@@ -10,7 +10,7 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ Route('home') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ Route('homepage') }}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{ Route('shop') }}">Shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Check Out</li>
                             </ul>

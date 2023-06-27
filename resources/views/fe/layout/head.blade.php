@@ -19,10 +19,11 @@
 <link href="{{ asset('/fe/css/home.css') }}" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
 <!-- Nice-select CSS -->
 <link href="{{ asset('/fe/css/nice-select.css') }}" rel="stylesheet">
 <!-- Carousel CSS -->
 <link href="{{ asset('/fe/css/owl.carousel.min.css') }}" rel="stylesheet">
+<!-- Inform css -->
+<link rel="stylesheet" href="{{ asset('/fe/css/inform.css') }}">
 
 

@@ -57,7 +57,7 @@
                       <th style="width: 15%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 10%">
                       Action
                       </th>
                   </tr>
@@ -76,11 +76,13 @@
         <td>
             {{ $image->discount_amount }}
         </td>
-        <td class="project-state">
+        <td class="project-actions text-center">
             <span class="badge badge-success">Success</span>
         </td>
-        <td class="project-actions text-right">
-        <a class="btn btn-info btn-sm" href="{{ Route('coupon.edit', $image->id) }}">
+        <td class="project-actions text-center">
+      <div class="btn-group" role="group">
+
+        <a class="btn btn-info btn-sm mr-2" href="{{ Route('coupon.edit', $image->id) }}">
                 <i class="fas fa-pencil-alt"></i>
                 Edit
             </a>
@@ -93,6 +95,8 @@
 </form>
     </tr>
     @endforeach
+
+
 </tbody>
 
 

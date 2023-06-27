@@ -56,7 +56,7 @@
                       </th>
                   </tr>
               </thead>
-            
+
               <tbody>
     @foreach($survey as $image)
     <tr>
@@ -76,17 +76,18 @@
             <p>{{ $image->user_provide }}</p>
         </td>
         <td class="project-actions text-right">
-            
+
             <form action="{{ route('survey.destroy', $image->id) }}" method="POST" style="display: inline-block;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this survey?')">
                     <i class="fas fa-trash"></i> Delete
                 </button>
             </form>
         </td>
     </tr>
     @endforeach
+    {{ $survey->links() }}
 </tbody>
 
 

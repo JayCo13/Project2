@@ -235,10 +235,11 @@ function previewImage(event) {
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h4>Customer Name: {{ $order->first_name }}</h4>
-                    <p>Product: {{ $order->orderItems->first()->product->name }}</p>
+                    <p>Product Name: {{ $order->orderItems->first()->product->name }}</p>
                     <p>Address: {{ $order->address }}</p>
                     <p>Phone: {{ $order->phone }}</p>
                     <p>Email: {{ $order->email }}</p>
+                    <p>Quantity: {{ $order->orderItems->first()->quantity }}</p>
                     <p>Price: {{ $order->orderItems->first()->product->price }}</p>
                     <img src="{{ '/images/' . $order->orderItems->first()->product->productimages->first()->photo }}" width="20%" alt="Product Image">
 

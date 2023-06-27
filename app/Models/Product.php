@@ -33,5 +33,11 @@ class Product extends Model
     public function orderDetails(){
         return $this->hasMany(OrderItem::class,'product_id','id');
     }
+
+    public function averageRating()
+{
+    return $this->productComments()->pluck('rating');
+}
+
 }
 

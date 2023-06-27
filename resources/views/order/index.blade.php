@@ -29,7 +29,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Product</h3>
+            <h3 class="card-title">Order</h3>
         </div>
         <div class="card-body p-0">
             <table class="table table-striped projects">
@@ -120,13 +120,13 @@
 </form>
 </td>
 
-      
+
 
     </tr>
     <td>
 </td>
                     @endforeach
-
+{{ $order->links() }}
                 </tbody>
             </table>
         </div>

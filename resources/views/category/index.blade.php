@@ -41,10 +41,9 @@
   <thead>
     <tr>
       <th style="width: 1%">STT</th>
-      <th style="width: 15%">Category Name</th>
-      <th style="width: 15%">Slug</th>
+      <th style="width: 50%">Category Name</th>
       <th style="width: 15%" class="text-center">Status</th>
-      <th style="width: 20%">Action</th>
+      <th style="width: 10%">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -52,21 +51,22 @@
     <tr>
       <td>{{ $index + 1 }}</td>
       <td><a>{{ $item->name }}</a><br/></td>
-      <td><p>{{ $item->slug }}</p></td>
-      <td class="project-state">
+      <td class="project-actions text-center">
         <span class="badge badge-success">Success</span>
       </td>
-      <td class="project-actions text-right">
-        <a class="btn btn-info btn-sm" href="{{ Route('category.edit', $item->id) }}">
+      <td class="project-actions text-center">
+      <div class="btn-group" role="group">
+        <a class="btn btn-info btn-sm mr-2" href="{{ Route('category.edit', $item->id) }}">
           <i class="fas fa-pencil-alt"></i> Edit
         </a>
         <form action="{{ route('category.destroy', $item->id) }}" method="POST">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">
+    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">
         <i class="fas fa-trash"></i> Delete
     </button>
 </form>
+</div>
       </td>
     </tr>
     @endforeach

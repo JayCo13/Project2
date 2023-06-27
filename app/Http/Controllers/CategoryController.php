@@ -31,11 +31,9 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
 
         ], [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
+            'name.required' => 'Please enter the product name.',
 
         ]);
 
@@ -72,17 +70,15 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
 
         ], [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
+            'name.required' => 'Please enter the product name.',
 
         ]);
 
         $cate = Category::findOrFail($id);
         $cate->update($request->all());
-        return redirect('categorys');
+        return redirect('categorys')->withSuccess('Category update successfully.');;
     }
 
     /**
@@ -92,7 +88,7 @@ class CategoryController extends Controller
     {
         $cate = Category::findOrFail($id);
         $cate->delete();
-        return redirect('categorys')->with('success', 'Xóa Category thành công!');;
+        return redirect('categorys')->with('success', 'Category delete successfully.');;
 
     }
 }

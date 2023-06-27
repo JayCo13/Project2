@@ -50,7 +50,7 @@ class BannerController extends Controller
             $banner->photo = $imageName;
             $banner->save();
         }
-        session()->flash('success', 'Banner đã được lưu thành công.');
+        session()->flash('success', 'Banner has been saved successfully.');
 
         return redirect('/banners');
     }
@@ -88,6 +88,6 @@ class BannerController extends Controller
 
         // Xóa banner
         $banner->delete();
-        return redirect()->route('banner.index')->with('success', 'Xóa Banner thành công!');
+        return redirect()->route('banner.index')->with('success', 'Remove Banner Successfully!');
     }
 }

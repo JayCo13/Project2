@@ -22,10 +22,11 @@ class OrderController extends Controller
         $order = Order::all();
         $items =OrderItem::all();
         $product=Product::all();
+        $order =Order::paginate(10);
         return view('order.index',compact('order','items','product'));
     }
-    
-    
+
+
     public function confirmOrder(Request $request, $id)
     {
         // Tìm đơn hàng theo ID

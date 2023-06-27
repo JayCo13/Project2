@@ -20,7 +20,7 @@
           <div class="col-sm-6">
           <h1 class="h3 mb-4 text-gray-800">{{ __('Contact') }}</h1>
           </div>
-          
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -50,7 +50,6 @@
       <td><a>{{ $item->title }}</a><br/></td>
       <td><p>{{ $item->content }}</p></td>
       <td class="project-actions text-right">
-        
         <form action="{{ route('contact.destroy', $item->id) }}" method="POST">
     @csrf
     @method('DELETE')
@@ -61,6 +60,8 @@
       </td>
     </tr>
     @endforeach
+
+    {{ $contact->links() }}
   </tbody>
 </table>
 

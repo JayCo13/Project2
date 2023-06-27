@@ -18,6 +18,7 @@ class ProductImageController extends Controller
     public function index()
     {
         $images = ProductImage::all();
+        $images = ProductImage::paginate(10);
         return view('productimage.index', compact('images'));
     }
 

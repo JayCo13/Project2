@@ -18,7 +18,7 @@ class SurveyController extends Controller
         $brands = Brand::all();
         return view('fe.survey',compact('survey','categories','brands','products'),['title' => 'Survey']);
     }
- 
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -30,31 +30,32 @@ class SurveyController extends Controller
             'user_choice' => 'required',
             'user_provide' => 'required',
         ]);
-    
+
         // Process the survey submission and save it to the database
         $survey = new Survey();
         $survey->user_chosen = $validatedData['user_choice'];
         $survey->user_provide = $validatedData['user_provide'];
-    
+
         // Retrieve a random promotion code from the coupon table
         $promotionCode = Coupon::pluck('code')->random();
-    
+
         // Associate the retrieved promotion code with the survey
         $survey->code = $promotionCode;
-    
+
         // Save the survey to the database
         $survey->save();
-    
-        
-    
+
+
+
         // Return a response with the generated promotion code
         return view('fe.confirmation', ['promotionCode' => $promotionCode]);
     }
-    
-    
+
+
     public function admin()
     {
         $survey = Survey::all();
+        $survey = Survey::paginate(10); // Số lư
         return view('survey.index',compact('survey'));
     }
     public function create()

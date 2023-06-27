@@ -8,20 +8,25 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function saveMessage(Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
         ]);
-    
+
         $validatedData['user_id'] = auth()->user()->id; // Lấy user_id của người dùng hiện tại
-    
+
         Contact::create($validatedData);
-    
+
         return redirect('/contact');
     }
-    
+
     public function index()
     {
         $categories = Category::all();
@@ -31,6 +36,7 @@ class ContactController extends Controller
 public function contactAdmin()
     {
         $contact = Contact::all();
+        $contact = Contact::paginate(10);
         return view('contact.index',compact('contact'));
     }
    public function destroy($id)

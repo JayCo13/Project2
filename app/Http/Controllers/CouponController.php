@@ -13,7 +13,7 @@ class CouponController extends Controller
     public function index()
     {
         $coupon = Coupon::all();
-        return view('coupon.index',compact('coupon'));
+        return view('coupon.index', compact('coupon'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CouponController extends Controller
     public function create()
     {
         $coupon = Coupon::all();
-        return view('coupon.create',compact('coupon'));
+        return view('coupon.create', compact('coupon'));
     }
 
     /**
@@ -35,9 +35,9 @@ class CouponController extends Controller
             'code' => 'required|string|max:255',
             'discount_amount' => 'required|integer',
         ], [
-            'code.required' => 'Vui lòng nhập code.',
-            'discount_amount.required' => 'Vui lòng nhập giảm giá sản phẩm.',
-            'discount_amount.integer' => 'Giảm giá sản phẩm phải là một số nguyên.',
+            'code.required' => 'Please enter the code.',
+            'discount_amount.required' => 'Please enter the product discount.',
+            'discount_amount.integer' => 'The product discount must be an integer.'
 
         ]);
         $coupon = Coupon::create([
@@ -45,7 +45,7 @@ class CouponController extends Controller
             'expiry_date' => $request->expiry_date,
             'discount_amount' => $request->discount_amount,
         ]);
-        session()->flash('success', 'Mã giảm giá đã được lưu thành công.');
+        session()->flash('success', 'The discount code has been successfully saved.');
 
         return redirect('/coupons');
     }
@@ -64,7 +64,7 @@ class CouponController extends Controller
     public function edit(string $id)
     {
         $coupon = Coupon::findOrFail($id);
-        return view('coupon.edit',compact('coupon'));
+        return view('coupon.edit', compact('coupon'));
     }
 
     /**
@@ -78,13 +78,13 @@ class CouponController extends Controller
             'code' => 'required|string|max:255',
             'discount_amount' => 'required|integer',
         ], [
-            'code.required' => 'Vui lòng nhập code.',
-            'discount_amount.required' => 'Vui lòng nhập giảm giá sản phẩm.',
-            'discount_amount.integer' => 'Giảm giá sản phẩm phải là một số nguyên.',
+            'code.required' => 'Please enter the code.',
+            'discount_amount.required' => 'Please enter the product discount.',
+            'discount_amount.integer' => 'The product discount must be an integer.'
 
         ]);
         $coupon->update($request->all());
-        session()->flash('success', 'Mã giảm giá đã được lưu thành công.');
+        session()->flash('success', 'The discount code has been successfully saved.');
 
         return redirect('/coupons');
     }
@@ -97,7 +97,7 @@ class CouponController extends Controller
         $coupon = Coupon::findOrFail($id);
         $coupon->delete();
 
-   session()->flash('success', 'Mã giảm giá đã được xóa thành công.');
+        session()->flash('success', 'The discount code has been successfully deleted');
 
         return redirect('/coupons');
     }

@@ -16,8 +16,8 @@ class BrandController extends Controller
     }
     public function index()
     {
-       $brand = Brand::all();
-       return view('brand.index', compact('brand'));
+        $brand = Brand::all();
+        return view('brand.index', compact('brand'));
     }
 
     /**
@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-      return view('brand.create');
+        return view('brand.create');
     }
 
     /**
@@ -35,12 +35,9 @@ class BrandController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
 
         ], [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
-
+            'name.required' => 'Please enter the product name.',
         ]);
 
         $brand = Brand::create([
@@ -66,7 +63,7 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        $brand =Brand::findOrFail($id);
+        $brand = Brand::findOrFail($id);
         return view('brand.edit', compact('brand'));
     }
 
@@ -77,16 +74,14 @@ class BrandController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
 
         ], [
-            'name.required' => 'Vui lòng nhập tên sản phẩm.',
-            'slug.required' => 'Vui lòng nhập slug sản phẩm.',
-
+            'name.required' => 'Please enter the product name.',
         ]);
-        $brand =Brand::findOrFail($id);
-            $brand->update($request->all());
-            return redirect('brands');
+
+        $brand = Brand::findOrFail($id);
+        $brand->update($request->all());
+        return redirect('brands')->withSuccess('Brand edit successfully.');
     }
 
     /**
@@ -94,9 +89,10 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        $brand =Brand::findOrFail($id);
-         $brand->delete();
-         return redirect('brands')->with('success', 'Xóa Brand thành công!');;
-        }
+        $brand = Brand::findOrFail($id);
+        $brand->delete();
+        return redirect('brands')->with('success', 'Brand delete successfully.');
+        ;
+    }
 
 }

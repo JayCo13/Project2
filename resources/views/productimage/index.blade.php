@@ -88,14 +88,14 @@
             </ul>
         </div>
     </td>
-    <td class="project-state">
+    <td class="project-actions text-center">
         <span class="badge badge-success">Success</span>
     </td>
 </tr>
 @endforeach
 
 
-
+{{$images->links() }}
 </td>
     </tr>
 </tbody>

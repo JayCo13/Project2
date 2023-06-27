@@ -64,7 +64,7 @@ class ProductController extends Controller
         $brands = Brand::all();
         $banners = Banner::all();
         
-        $perPage = $request->show ?? 3;
+        $perPage = $request->show ?? 6;
         $sortBy = $request->sortBy ?? 'lastest';
 
         $category = Category::where('name', $name)->first();

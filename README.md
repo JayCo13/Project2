@@ -2,9 +2,10 @@
 # Project_Sem2
 h1 😄 hello this is our Website for selling sneakers called "DealZone"
 p 👉 If you guys want to download my project, i will show you the following steps:
-Move to my git and clone my project: https://github.com/TaiC0/Project2.git
+hr
+p Move to my git and clone my project: https://github.com/TaiC0/Project2.git
 
-1.1 Then copy the url, move to Vscode IDE and Type”git clone https://github.com/TaiC0/Project2.git
+p 1.1 Then copy the url, move to Vscode IDE and Type”git clone https://github.com/TaiC0/Project2.git
 ”
 	•	After that cd to the project by the statement “cd Project2”
 	•	Find file .env.example and rename it to .env

@@ -88,7 +88,7 @@ GOOGLE_REDIRECT=http://127.0.0.1:8000/login/google/callback
 
 	•	Finally, run “php artisan migrate” to generate tables
 	•	Move to database, generate a database name “mainProject” or any name that you like
-	•	After that import projectt.sql which i have given to receive our exist data 
+	•	After that import mainProject.sql which i have given to receive our exist data 
 We very appreciate about your attention of our project! 
 If you have any question please contact me by my email address: taicopgm@gmail.com
 Best Regards!

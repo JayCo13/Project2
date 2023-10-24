@@ -1,6 +1,7 @@
 # Project_Sem2
 
-:rocket:  Hi guys this is our Website for selling sneakers called "DealZone", Let's check out how its look like!
+#### :rocket: Hi guys, this is our Website for selling sneakers called "DealZone". Let's check out how it looks!
+
 -----------------------------------------
 
 

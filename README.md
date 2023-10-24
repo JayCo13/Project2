@@ -7,19 +7,18 @@
 
 
 🏷 Home page
-<img width="300" alt="home" src="https://github.com/JayCo13/Project2/assets/131240657/cafb9dad-3071-4ab5-8f13-03243b582ac4">    🏷 Product page
- <img width="300" alt="home2" src="https://github.com/JayCo13/Project2/assets/131240657/52b91776-9556-490b-9688-58e838e51a55">    
-
+<img width="300" alt="home" src="https://github.com/JayCo13/Project2/assets/131240657/cafb9dad-3071-4ab5-8f13-03243b582ac4">    
+🏷 Product page
+<img width="300" alt="home2" src="https://github.com/JayCo13/Project2/assets/131240657/52b91776-9556-490b-9688-58e838e51a55">    
 🏷 Survey page
-<img width="300" alt="home3" src="https://github.com/JayCo13/Project2/assets/131240657/aa188d3a-431a-4cdc-9f89-94949ff5b8b4">    🏷 Payment page
+<img width="300" alt="home3" src="https://github.com/JayCo13/Project2/assets/131240657/aa188d3a-431a-4cdc-9f89-94949ff5b8b4">     
+🏷 Payment page
 <img width="300" alt="home4" src="https://github.com/JayCo13/Project2/assets/131240657/657c082a-e6db-42a0-89ed-0e9a58601909">
-
- 
-
 🏷 Paypal Payment
-<img width="300" alt="home5" src="https://github.com/JayCo13/Project2/assets/131240657/4f942220-dfdd-44e2-b834-7f6401fb08c6">   🏷 Admin
+<img width="300" alt="home5" src="https://github.com/JayCo13/Project2/assets/131240657/4f942220-dfdd-44e2-b834-7f6401fb08c6">
+     
+🏷 Admin
 <img width="300" alt="home6" src="https://github.com/JayCo13/Project2/assets/131240657/59e2c825-956d-4cff-a457-fe7d56a8710c">
-
  
 
  
